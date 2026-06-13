@@ -46,12 +46,19 @@ A single `evaluate_clustering()` helper produces, for every run:
 Plus three diagnostics:
 
 - **Dendrogram** (single-linkage on a sub-sample) to read the fusion structure
+
+  ![Single-linkage dendrogram](images/dendrogram.png)
+
 - **k-distance plot** — the `min_samples`-th nearest-neighbor distance, sorted, to pick `eps` for DBSCAN by locating the "knee"
 - **Parameter sensitivity sweep** — DBSCAN with `eps ∈ {0.12, 0.16, 0.22, 0.30}` to show how brittle the result is to that one knob
+
+  ![DBSCAN eps sensitivity](images/sensitivity.png)
 
 ---
 
 ## Results
+
+![Algorithm comparison on make_moons](images/comparison_moons.png)
 
 ### Primary — `make_moons` (ranked by ARI)
 
@@ -139,7 +146,19 @@ Reproducibility: `RANDOM_STATE = 42` across every algorithm and data generator.
 ## Files
 
 - `cod ONIA.ipynb` — the full study (39 cells, ~20 figures)
-- `Clustering avansat.pdf` — accompanying theory write-up
+- `Clustering avansat.pdf` — accompanying theory write-up (see References)
+- `generate_plots.py` — regenerates every figure in `images/` from scratch
+- `images/` — the figures embedded in this README
+
+---
+
+## References
+
+The accompanying PDF (`Clustering avansat.pdf`) was sourced from the **MLCompete / Olimpiada AI** learning platform:
+
+- [Clustering Avansat — Roadmap entry on platform.olimpiada-ai.ro](https://platform.olimpiada-ai.ro/en/roadmap/clustering-avansat) — the original theory write-up that motivated this study.
+
+All implementation, benchmarks, evaluation code, and analysis in `cod ONIA.ipynb` are my own work, written to apply the concepts from that material in practice.
 
 ---
 
